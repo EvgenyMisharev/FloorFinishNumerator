@@ -15,7 +15,7 @@
                     <RowDefinition Height="35*"/>
                     <RowDefinition Height="35*"/>
                 </Grid.RowDefinitions>
-                <RadioButton x:Name="rbt_EndToEndThroughoutTheProject" Content="Сквозная по всему проекту" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center"/>
+                <RadioButton x:Name="rbt_EndToEndThroughoutTheProject" Content="Сквозная по всему проекту" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" IsChecked="True"/>
                 <RadioButton x:Name="rbt_SeparatedByLevels" Content="С разделением по уровням" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Grid.Row="1"/>
             </Grid>
         </GroupBox>

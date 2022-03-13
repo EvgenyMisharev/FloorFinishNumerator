@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace FinishNumerator
@@ -8,6 +10,7 @@ namespace FinishNumerator
     /// </summary>
     public partial class FinishNumeratorWPF : Window
     {
+        public string FinishNumberingSelectedName;
         public FinishNumeratorWPF()
         {
             InitializeComponent();
@@ -15,6 +18,10 @@ namespace FinishNumerator
 
         private void btn_Ok_Click(object sender, RoutedEventArgs e)
         {
+            FinishNumberingSelectedName = (groupBox_FinishNumbering.Content as System.Windows.Controls.Grid)
+                .Children.OfType<RadioButton>()
+                .FirstOrDefault(rb => rb.IsChecked.Value == true)
+                .Name;
             DialogResult = true;
             Close();
         }
@@ -28,6 +35,10 @@ namespace FinishNumerator
         {
             if (e.Key == Key.Enter || e.Key == Key.Space)
             {
+                FinishNumberingSelectedName = (groupBox_FinishNumbering.Content as System.Windows.Controls.Grid)
+                    .Children.OfType<RadioButton>()
+                    .FirstOrDefault(rb => rb.IsChecked.Value == true)
+                    .Name;
                 DialogResult = true;
                 Close();
             }

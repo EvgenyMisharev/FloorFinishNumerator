@@ -8,7 +8,9 @@
              d:DesignHeight="100" d:DesignWidth="450" Title="Нужно немного подождать..." MaxHeight="100" MaxWidth="450"
              MinHeight="100" MinWidth="450" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen"
              Topmost="True">
-    <Grid>
+    <Grid ScrollViewer.CanContentScroll="True">
         <ProgressBar Name="pb_FloorCreatorProgressBar" Margin="10" Value="0"/>
+        <Label x:Name="label_ItemName" Content="" Margin="15,20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10"/>
+
     </Grid>
 </Window>
