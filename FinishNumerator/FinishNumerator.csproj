@@ -58,6 +58,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlphanumComparatorFastString.cs" />
     <Compile Include="FinishNumeratorCommand.cs" />
     <Compile Include="FinishNumeratorProgressBarWPF.xaml.cs">
       <DependentUpon>FinishNumeratorProgressBarWPF.xaml</DependentUpon>

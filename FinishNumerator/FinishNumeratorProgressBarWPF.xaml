@@ -10,7 +10,7 @@
              Topmost="True">
     <Grid ScrollViewer.CanContentScroll="True">
         <ProgressBar Name="pb_FloorCreatorProgressBar" Margin="10" Value="0"/>
-        <Label x:Name="label_ItemName" Content="" Margin="15,20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10"/>
+        <Label x:Name="label_ItemName" Content="" Margin="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10"/>
 
     </Grid>
 </Window>
