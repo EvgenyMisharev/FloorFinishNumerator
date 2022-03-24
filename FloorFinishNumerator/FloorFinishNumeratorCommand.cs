@@ -8,26 +8,26 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace FinishNumerator
+namespace FloorFinishNumerator
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-    class FinishNumeratorCommand : IExternalCommand
+    class FloorFinishNumeratorCommand : IExternalCommand
     {
-        FinishNumeratorProgressBarWPF finishNumeratorProgressBarWPF;
+        FloorFinishNumeratorProgressBarWPF floorFinishNumeratorProgressBarWPF;
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             Document doc = commandData.Application.ActiveUIDocument.Document;
 
-            FinishNumeratorWPF finishNumeratorWPF = new FinishNumeratorWPF();
-            finishNumeratorWPF.ShowDialog();
-            if (finishNumeratorWPF.DialogResult != true)
+            FloorFinishNumeratorWPF floorFinishNumeratorWPF = new FloorFinishNumeratorWPF();
+            floorFinishNumeratorWPF.ShowDialog();
+            if (floorFinishNumeratorWPF.DialogResult != true)
             {
                 return Result.Cancelled;
             }
 
-            string finishNumberingSelectedName = finishNumeratorWPF.FinishNumberingSelectedName;
+            string floorFinishNumberingSelectedName = floorFinishNumeratorWPF.FloorFinishNumberingSelectedName;
 
-            if (finishNumberingSelectedName == "rbt_EndToEndThroughoutTheProject")
+            if (floorFinishNumberingSelectedName == "rbt_EndToEndThroughoutTheProject")
             {
                 List<Room> roomList = new FilteredElementCollector(doc)
                     .OfClass(typeof(SpatialElement))
@@ -58,14 +58,14 @@ namespace FinishNumerator
                     newWindowThread.Start();
                     int step = 0;
                     Thread.Sleep(100);
-                    finishNumeratorProgressBarWPF.pb_FloorCreatorProgressBar.Dispatcher.Invoke(() => finishNumeratorProgressBarWPF.pb_FloorCreatorProgressBar.Minimum = 0);
-                    finishNumeratorProgressBarWPF.pb_FloorCreatorProgressBar.Dispatcher.Invoke(() => finishNumeratorProgressBarWPF.pb_FloorCreatorProgressBar.Maximum = floorTypesList.Count);
+                    floorFinishNumeratorProgressBarWPF.pb_FloorFinishNumeratorProgressBar.Dispatcher.Invoke(() => floorFinishNumeratorProgressBarWPF.pb_FloorFinishNumeratorProgressBar.Minimum = 0);
+                    floorFinishNumeratorProgressBarWPF.pb_FloorFinishNumeratorProgressBar.Dispatcher.Invoke(() => floorFinishNumeratorProgressBarWPF.pb_FloorFinishNumeratorProgressBar.Maximum = floorTypesList.Count);
 
                     foreach (FloorType floorType in floorTypesList)
                     {
                         step++;
-                        finishNumeratorProgressBarWPF.pb_FloorCreatorProgressBar.Dispatcher.Invoke(() => finishNumeratorProgressBarWPF.pb_FloorCreatorProgressBar.Value = step);
-                        finishNumeratorProgressBarWPF.pb_FloorCreatorProgressBar.Dispatcher.Invoke(() => finishNumeratorProgressBarWPF.label_ItemName.Content = floorType.Name);
+                        floorFinishNumeratorProgressBarWPF.pb_FloorFinishNumeratorProgressBar.Dispatcher.Invoke(() => floorFinishNumeratorProgressBarWPF.pb_FloorFinishNumeratorProgressBar.Value = step);
+                        floorFinishNumeratorProgressBarWPF.pb_FloorFinishNumeratorProgressBar.Dispatcher.Invoke(() => floorFinishNumeratorProgressBarWPF.label_ItemName.Content = floorType.Name);
 
                         List<Floor> floorList = new FilteredElementCollector(doc)
                            .OfClass(typeof(Floor))
@@ -82,7 +82,7 @@ namespace FinishNumerator
                         if (floorList.First().LookupParameter("АР_НомераПомещенийПоТипуПола") == null)
                         {
                             TaskDialog.Show("Revit", "У пола отсутствует параметр экземпляра \"АР_НомераПомещенийПоТипуПола\"");
-                            finishNumeratorProgressBarWPF.Dispatcher.Invoke(() => finishNumeratorProgressBarWPF.Close());
+                            floorFinishNumeratorProgressBarWPF.Dispatcher.Invoke(() => floorFinishNumeratorProgressBarWPF.Close());
                             return Result.Cancelled;
                         }
 
@@ -151,11 +151,11 @@ namespace FinishNumerator
                             floor.LookupParameter("АР_НомераПомещенийПоТипуПола").Set(roomNumbersByFloorType);
                         }
                     }
-                    finishNumeratorProgressBarWPF.Dispatcher.Invoke(() => finishNumeratorProgressBarWPF.Close());
+                    floorFinishNumeratorProgressBarWPF.Dispatcher.Invoke(() => floorFinishNumeratorProgressBarWPF.Close());
                     t.Commit();
                 }
             }
-            else if (finishNumberingSelectedName == "rbt_SeparatedByLevels")
+            else if (floorFinishNumberingSelectedName == "rbt_SeparatedByLevels")
             {
                 List<Level> levelList = new FilteredElementCollector(doc)
                    .OfClass(typeof(Level))
@@ -170,16 +170,16 @@ namespace FinishNumerator
                 newWindowThread.Start();
                 int step = 0;
                 Thread.Sleep(100);
-                finishNumeratorProgressBarWPF.pb_FloorCreatorProgressBar.Dispatcher.Invoke(() => finishNumeratorProgressBarWPF.pb_FloorCreatorProgressBar.Minimum = 0);
-                finishNumeratorProgressBarWPF.pb_FloorCreatorProgressBar.Dispatcher.Invoke(() => finishNumeratorProgressBarWPF.pb_FloorCreatorProgressBar.Maximum = levelList.Count);
+                floorFinishNumeratorProgressBarWPF.pb_FloorFinishNumeratorProgressBar.Dispatcher.Invoke(() => floorFinishNumeratorProgressBarWPF.pb_FloorFinishNumeratorProgressBar.Minimum = 0);
+                floorFinishNumeratorProgressBarWPF.pb_FloorFinishNumeratorProgressBar.Dispatcher.Invoke(() => floorFinishNumeratorProgressBarWPF.pb_FloorFinishNumeratorProgressBar.Maximum = levelList.Count);
                 using (Transaction t = new Transaction(doc))
                 {
                     t.Start("Нумерация отделки");
                     foreach (Level lv in levelList)
                     {
                         step++;
-                        finishNumeratorProgressBarWPF.pb_FloorCreatorProgressBar.Dispatcher.Invoke(() => finishNumeratorProgressBarWPF.pb_FloorCreatorProgressBar.Value = step);
-                        finishNumeratorProgressBarWPF.pb_FloorCreatorProgressBar.Dispatcher.Invoke(() => finishNumeratorProgressBarWPF.label_ItemName.Content = lv.Name);
+                        floorFinishNumeratorProgressBarWPF.pb_FloorFinishNumeratorProgressBar.Dispatcher.Invoke(() => floorFinishNumeratorProgressBarWPF.pb_FloorFinishNumeratorProgressBar.Value = step);
+                        floorFinishNumeratorProgressBarWPF.pb_FloorFinishNumeratorProgressBar.Dispatcher.Invoke(() => floorFinishNumeratorProgressBarWPF.label_ItemName.Content = lv.Name);
 
                         List<Room> roomList = new FilteredElementCollector(doc)
                             .OfClass(typeof(SpatialElement))
@@ -219,7 +219,7 @@ namespace FinishNumerator
                             if (floorList.First().LookupParameter("АР_НомераПомещенийПоТипуПола") == null)
                             {
                                 TaskDialog.Show("Revit", "У пола отсутствует параметр экземпляра \"АР_НомераПомещенийПоТипуПола\"");
-                                finishNumeratorProgressBarWPF.Dispatcher.Invoke(() => finishNumeratorProgressBarWPF.Close());
+                                floorFinishNumeratorProgressBarWPF.Dispatcher.Invoke(() => floorFinishNumeratorProgressBarWPF.Close());
                                 return Result.Cancelled;
                             }
 
@@ -289,7 +289,7 @@ namespace FinishNumerator
                             }
                         }
                     }
-                    finishNumeratorProgressBarWPF.Dispatcher.Invoke(() => finishNumeratorProgressBarWPF.Close());
+                    floorFinishNumeratorProgressBarWPF.Dispatcher.Invoke(() => floorFinishNumeratorProgressBarWPF.Close());
                     t.Commit();
                 }
             }
@@ -298,8 +298,8 @@ namespace FinishNumerator
         }
         private void ThreadStartingPoint()
         {
-            finishNumeratorProgressBarWPF = new FinishNumeratorProgressBarWPF();
-            finishNumeratorProgressBarWPF.Show();
+            floorFinishNumeratorProgressBarWPF = new FloorFinishNumeratorProgressBarWPF();
+            floorFinishNumeratorProgressBarWPF.Show();
             System.Windows.Threading.Dispatcher.Run();
         }
     }

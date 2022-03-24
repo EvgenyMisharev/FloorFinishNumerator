@@ -1,13 +1,13 @@
 ﻿using System.Windows;
 
-namespace FinishNumerator
+namespace FloorFinishNumerator
 {
     /// <summary>
     /// Логика взаимодействия для FinishNumeratorProgressBarWPF.xaml
     /// </summary>
-    public partial class FinishNumeratorProgressBarWPF : Window
+    public partial class FloorFinishNumeratorProgressBarWPF : Window
     {
-        public FinishNumeratorProgressBarWPF()
+        public FloorFinishNumeratorProgressBarWPF()
         {
             InitializeComponent();
         }

@@ -1,0 +1,14 @@
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FinishNumerator\FinishNumerator\obj\Debug\FinishNumerator.csproj.AssemblyReference.cache
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FinishNumerator\FinishNumerator\obj\Debug\FinishNumerator.csproj.CoreCompileInputs.cache
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FinishNumerator\FinishNumerator\obj\Debug\FinishNumerator.dll
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FinishNumerator\FinishNumerator\obj\Debug\FinishNumerator.pdb
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FinishNumerator\FinishNumerator.dll.config
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FinishNumerator\FinishNumerator.dll
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FinishNumerator\FinishNumerator.pdb
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FinishNumerator\FinishNumerator\obj\Debug\FinishNumeratorProgressBarWPF.g.cs
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FinishNumerator\FinishNumerator\obj\Debug\FinishNumerator_MarkupCompile.cache
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FinishNumerator\FinishNumerator\obj\Debug\FinishNumerator_MarkupCompile.lref
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FinishNumerator\FinishNumerator\obj\Debug\FinishNumeratorProgressBarWPF.baml
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FinishNumerator\FinishNumerator\obj\Debug\FinishNumerator.g.resources
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FinishNumerator\FinishNumerator\obj\Debug\FinishNumeratorWPF.g.cs
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FinishNumerator\FinishNumerator\obj\Debug\FinishNumeratorWPF.baml

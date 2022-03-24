@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FinishNumerator
+namespace FloorFinishNumerator
 {
     public class AlphanumComparatorFastString : IComparer<String>
     {

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0DC1BAF5-F18D-4FE7-B6ED-2BD71535F260}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>FinishNumerator</RootNamespace>
-    <AssemblyName>FinishNumerator</AssemblyName>
+    <RootNamespace>FloorFinishNumerator</RootNamespace>
+    <AssemblyName>FloorFinishNumerator</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -59,12 +59,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlphanumComparatorFastString.cs" />
-    <Compile Include="FinishNumeratorCommand.cs" />
-    <Compile Include="FinishNumeratorProgressBarWPF.xaml.cs">
-      <DependentUpon>FinishNumeratorProgressBarWPF.xaml</DependentUpon>
+    <Compile Include="FloorFinishNumeratorCommand.cs" />
+    <Compile Include="FloorFinishNumeratorProgressBarWPF.xaml.cs">
+      <DependentUpon>FloorFinishNumeratorProgressBarWPF.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FinishNumeratorWPF.xaml.cs">
-      <DependentUpon>FinishNumeratorWPF.xaml</DependentUpon>
+    <Compile Include="FloorFinishNumeratorWPF.xaml.cs">
+      <DependentUpon>FloorFinishNumeratorWPF.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,11 +72,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="FinishNumeratorProgressBarWPF.xaml">
+    <Page Include="FloorFinishNumeratorProgressBarWPF.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FinishNumeratorWPF.xaml">
+    <Page Include="FloorFinishNumeratorWPF.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
