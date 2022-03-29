@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        mc:Ignorable="d" 
-             Title="Нумератор отделки" Height="180" Width="300" 
+             mc:Ignorable="d" 
+             Title="Нумератор пола" Height="180" Width="300" 
              MinHeight="180" MinWidth="300" MaxHeight="180" MaxWidth="300"
              WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" KeyDown="FloorFinishNumeratorWPF_KeyDown">
     <Grid>
-        <GroupBox x:Name="groupBox_FinishNumbering" Header="Нумерация отделки:" Margin="10,10,10,50">
+        <GroupBox x:Name="groupBox_FloorFinishNumbering" Header="Нумерация пола:" Margin="10,10,10,50">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="35*"/>

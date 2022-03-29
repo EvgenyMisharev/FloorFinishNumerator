@@ -128,7 +128,10 @@ namespace FloorFinishNumerator
                                     }
                                     if (intersection != null && intersection.Volume != 0)
                                     {
-                                        roomNumbersList.Add(room.Number);
+                                        if(roomNumbersList.Find(elem => elem == room.Number) == null)
+                                        {
+                                            roomNumbersList.Add(room.Number);
+                                        }
                                     }
                                 }
                             }
@@ -265,7 +268,10 @@ namespace FloorFinishNumerator
                                         }
                                         if (intersection != null && intersection.Volume != 0)
                                         {
-                                            roomNumbersList.Add(room.Number);
+                                            if (roomNumbersList.Find(elem => elem == room.Number) == null)
+                                            {
+                                                roomNumbersList.Add(room.Number);
+                                            }
                                         }
                                     }
                                 }

@@ -18,7 +18,7 @@ namespace FloorFinishNumerator
 
         private void btn_Ok_Click(object sender, RoutedEventArgs e)
         {
-            FloorFinishNumberingSelectedName = (groupBox_FinishNumbering.Content as System.Windows.Controls.Grid)
+            FloorFinishNumberingSelectedName = (groupBox_FloorFinishNumbering.Content as System.Windows.Controls.Grid)
                 .Children.OfType<RadioButton>()
                 .FirstOrDefault(rb => rb.IsChecked.Value == true)
                 .Name;
@@ -35,7 +35,7 @@ namespace FloorFinishNumerator
         {
             if (e.Key == Key.Enter || e.Key == Key.Space)
             {
-                FloorFinishNumberingSelectedName = (groupBox_FinishNumbering.Content as System.Windows.Controls.Grid)
+                FloorFinishNumberingSelectedName = (groupBox_FloorFinishNumbering.Content as System.Windows.Controls.Grid)
                     .Children.OfType<RadioButton>()
                     .FirstOrDefault(rb => rb.IsChecked.Value == true)
                     .Name;
