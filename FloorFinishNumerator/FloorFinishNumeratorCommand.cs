@@ -92,6 +92,7 @@ namespace FloorFinishNumerator
                         }
 
                         List<string> roomNumbersList = new List<string>();
+                        List<string> roomNamesList = new List<string>();
                         foreach (Floor floor in floorList)
                         {
                             Solid floorSolid = null;
@@ -131,13 +132,17 @@ namespace FloorFinishNumerator
                                         if(roomNumbersList.Find(elem => elem == room.Number) == null)
                                         {
                                             roomNumbersList.Add(room.Number);
+                                            roomNamesList.Add(room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString());
                                         }
                                     }
                                 }
                             }
                         }
                         roomNumbersList.Sort(new AlphanumComparatorFastString());
+                        roomNamesList.Sort(new AlphanumComparatorFastString());
+
                         string roomNumbersByFloorType = null;
+                        string roomNamesByFloorType = null;
                         foreach (string roomNumber in roomNumbersList)
                         {
                             if (roomNumbersByFloorType == null)
@@ -149,9 +154,27 @@ namespace FloorFinishNumerator
                                 roomNumbersByFloorType += (", " + roomNumber);
                             }
                         }
+
+                        foreach (string roomName in roomNamesList)
+                        {
+                            if (roomNamesByFloorType == null)
+                            {
+                                roomNamesByFloorType += roomName;
+                            }
+                            else
+                            {
+                                roomNamesByFloorType += (", " + roomName);
+                            }
+                        }
+
                         foreach (Floor floor in floorList)
                         {
                             floor.LookupParameter("АР_НомераПомещенийПоТипуПола").Set(roomNumbersByFloorType);
+                        }
+
+                        foreach (Floor floor in floorList)
+                        {
+                            floor.LookupParameter("АР_ИменаПомещенийПоТипуПола").Set(roomNamesByFloorType);
                         }
                     }
                     floorFinishNumeratorProgressBarWPF.Dispatcher.Invoke(() => floorFinishNumeratorProgressBarWPF.Close());
@@ -232,6 +255,7 @@ namespace FloorFinishNumerator
                             }
 
                             List<string> roomNumbersList = new List<string>();
+                            List<string> roomNamesList = new List<string>();
                             foreach (Floor floor in floorList)
                             {
                                 Solid floorSolid = null;
@@ -271,13 +295,17 @@ namespace FloorFinishNumerator
                                             if (roomNumbersList.Find(elem => elem == room.Number) == null)
                                             {
                                                 roomNumbersList.Add(room.Number);
+                                                roomNamesList.Add(room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString());
                                             }
                                         }
                                     }
                                 }
                             }
                             roomNumbersList.Sort(new AlphanumComparatorFastString());
+                            roomNamesList.Sort(new AlphanumComparatorFastString());
+
                             string roomNumbersByFloorType = null;
+                            string roomNamesByFloorType = null;
                             foreach (string roomNumber in roomNumbersList)
                             {
                                 if (roomNumbersByFloorType == null)
@@ -289,9 +317,27 @@ namespace FloorFinishNumerator
                                     roomNumbersByFloorType += (", " + roomNumber);
                                 }
                             }
+
+                            foreach (string roomName in roomNamesList)
+                            {
+                                if (roomNamesByFloorType == null)
+                                {
+                                    roomNamesByFloorType += roomName;
+                                }
+                                else
+                                {
+                                    roomNamesByFloorType += (", " + roomName);
+                                }
+                            }
+
                             foreach (Floor floor in floorList)
                             {
                                 floor.LookupParameter("АР_НомераПомещенийПоТипуПола").Set(roomNumbersByFloorType);
+                            }
+
+                            foreach (Floor floor in floorList)
+                            {
+                                floor.LookupParameter("АР_ИменаПомещенийПоТипуПола").Set(roomNamesByFloorType);
                             }
                         }
                     }
