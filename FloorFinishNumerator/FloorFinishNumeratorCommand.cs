@@ -40,8 +40,8 @@ namespace FloorFinishNumerator
 
                 using (Transaction t = new Transaction(doc))
                 {
-                    t.Start("Нумерация отделки");
-                    //Типы полов для формы
+                    t.Start("Нумерация пола");
+                    //Типы полов 
                     List<FloorType> floorTypesList = new FilteredElementCollector(doc)
                         .OfClass(typeof(FloorType))
                         .Where(f => f.Category.Id.IntegerValue.Equals((int)BuiltInCategory.OST_Floors))
@@ -78,7 +78,7 @@ namespace FloorFinishNumerator
                         if (floorList.Count == 0) continue;
 
 
-                        //Очистка параметра "Помещение_Список номеров"
+                        //Очистка параметра "АР_НомераПомещенийПоТипуПола" и "АР_ИменаПомещенийПоТипуПола"
                         if (floorList.First().LookupParameter("АР_НомераПомещенийПоТипуПола") == null)
                         {
                             TaskDialog.Show("Revit", "У пола отсутствует параметр экземпляра \"АР_НомераПомещенийПоТипуПола\"");
@@ -89,6 +89,7 @@ namespace FloorFinishNumerator
                         foreach (Floor floor in floorList)
                         {
                             floor.LookupParameter("АР_НомераПомещенийПоТипуПола").Set("");
+                            floor.LookupParameter("АР_ИменаПомещенийПоТипуПола").Set("");
                         }
 
                         List<string> roomNumbersList = new List<string>();
@@ -139,6 +140,7 @@ namespace FloorFinishNumerator
                             }
                         }
                         roomNumbersList.Sort(new AlphanumComparatorFastString());
+                        roomNamesList = roomNamesList.Distinct().ToList();
                         roomNamesList.Sort(new AlphanumComparatorFastString());
 
                         string roomNumbersByFloorType = null;
@@ -200,7 +202,7 @@ namespace FloorFinishNumerator
                 floorFinishNumeratorProgressBarWPF.pb_FloorFinishNumeratorProgressBar.Dispatcher.Invoke(() => floorFinishNumeratorProgressBarWPF.pb_FloorFinishNumeratorProgressBar.Maximum = levelList.Count);
                 using (Transaction t = new Transaction(doc))
                 {
-                    t.Start("Нумерация отделки");
+                    t.Start("Нумерация пола");
                     foreach (Level lv in levelList)
                     {
                         step++;
@@ -216,7 +218,7 @@ namespace FloorFinishNumerator
                             .Where(r => r.LevelId == lv.Id)
                             .ToList();
 
-                        //Типы полов для формы
+                        //Типы полов 
                         List<FloorType> floorTypesList = new FilteredElementCollector(doc)
                             .OfClass(typeof(FloorType))
                             .Where(f => f.Category.Id.IntegerValue.Equals((int)BuiltInCategory.OST_Floors))
@@ -241,7 +243,7 @@ namespace FloorFinishNumerator
                             if (floorList.Count == 0) continue;
 
 
-                            //Очистка параметра "Помещение_Список номеров"
+                            //Очистка параметра "АР_НомераПомещенийПоТипуПола" и "АР_ИменаПомещенийПоТипуПола"
                             if (floorList.First().LookupParameter("АР_НомераПомещенийПоТипуПола") == null)
                             {
                                 TaskDialog.Show("Revit", "У пола отсутствует параметр экземпляра \"АР_НомераПомещенийПоТипуПола\"");
@@ -252,6 +254,7 @@ namespace FloorFinishNumerator
                             foreach (Floor floor in floorList)
                             {
                                 floor.LookupParameter("АР_НомераПомещенийПоТипуПола").Set("");
+                                floor.LookupParameter("АР_ИменаПомещенийПоТипуПола").Set("");
                             }
 
                             List<string> roomNumbersList = new List<string>();
@@ -302,6 +305,7 @@ namespace FloorFinishNumerator
                                 }
                             }
                             roomNumbersList.Sort(new AlphanumComparatorFastString());
+                            roomNamesList = roomNamesList.Distinct().ToList();
                             roomNamesList.Sort(new AlphanumComparatorFastString());
 
                             string roomNumbersByFloorType = null;

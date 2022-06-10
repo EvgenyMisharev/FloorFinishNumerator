@@ -10,6 +10,5 @@
     <Grid ScrollViewer.CanContentScroll="True">
         <ProgressBar Name="pb_FloorFinishNumeratorProgressBar" Margin="10" Value="0"/>
         <Label x:Name="label_ItemName" Content="" Margin="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10"/>
-
     </Grid>
 </Window>
