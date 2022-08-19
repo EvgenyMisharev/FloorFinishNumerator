@@ -94,10 +94,12 @@ namespace FloorFinishNumerator
 
                         List<string> roomNumbersList = new List<string>();
                         List<string> roomNamesList = new List<string>();
+                        Options opt = new Options();
+                        opt.DetailLevel = ViewDetailLevel.Fine;
                         foreach (Floor floor in floorList)
                         {
                             Solid floorSolid = null;
-                            GeometryElement geomFloorElement = floor.get_Geometry(new Options());
+                            GeometryElement geomFloorElement = floor.get_Geometry(opt);
                             foreach (GeometryObject geomObj in geomFloorElement)
                             {
                                 floorSolid = geomObj as Solid;
@@ -111,7 +113,7 @@ namespace FloorFinishNumerator
                             foreach (Room room in roomList)
                             {
                                 Solid roomSolid = null;
-                                GeometryElement geomRoomElement = room.get_Geometry(new Options());
+                                GeometryElement geomRoomElement = room.get_Geometry(opt);
                                 foreach (GeometryObject geomObj in geomRoomElement)
                                 {
                                     roomSolid = geomObj as Solid;
@@ -126,7 +128,17 @@ namespace FloorFinishNumerator
                                     }
                                     catch
                                     {
-                                        //ПРОПИСАТЬ ЛОГИКУ СБОРА ОШИБОК!!!!
+                                        Curve curve = Line.CreateBound(floorSolid.ComputeCentroid(), floorSolid.ComputeCentroid() + (500 / 304.8) * XYZ.BasisZ) as Curve;
+                                        SolidCurveIntersection curveIntersection = roomSolid.IntersectWithCurve(curve, new SolidCurveIntersectionOptions());
+                                        if(curveIntersection.SegmentCount > 0)
+                                        {
+                                            if (roomNumbersList.Find(elem => elem == room.Number) == null)
+                                            {
+                                                roomNumbersList.Add(room.Number);
+                                                roomNamesList.Add(room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString());
+                                                continue;
+                                            }
+                                        }
                                     }
                                     if (intersection != null && intersection.Volume != 0)
                                     {
@@ -259,10 +271,12 @@ namespace FloorFinishNumerator
 
                             List<string> roomNumbersList = new List<string>();
                             List<string> roomNamesList = new List<string>();
+                            Options opt = new Options();
+                            opt.DetailLevel = ViewDetailLevel.Fine;
                             foreach (Floor floor in floorList)
                             {
                                 Solid floorSolid = null;
-                                GeometryElement geomFloorElement = floor.get_Geometry(new Options());
+                                GeometryElement geomFloorElement = floor.get_Geometry(opt);
                                 foreach (GeometryObject geomObj in geomFloorElement)
                                 {
                                     floorSolid = geomObj as Solid;
@@ -276,7 +290,7 @@ namespace FloorFinishNumerator
                                 foreach (Room room in roomList)
                                 {
                                     Solid roomSolid = null;
-                                    GeometryElement geomRoomElement = room.get_Geometry(new Options());
+                                    GeometryElement geomRoomElement = room.get_Geometry(opt);
                                     foreach (GeometryObject geomObj in geomRoomElement)
                                     {
                                         roomSolid = geomObj as Solid;
@@ -291,7 +305,17 @@ namespace FloorFinishNumerator
                                         }
                                         catch
                                         {
-                                            //ПРОПИСАТЬ ЛОГИКУ СБОРА ОШИБОК!!!!
+                                            Curve curve = Line.CreateBound(floorSolid.ComputeCentroid(), floorSolid.ComputeCentroid() + (500 / 304.8) * XYZ.BasisZ) as Curve;
+                                            SolidCurveIntersection curveIntersection = roomSolid.IntersectWithCurve(curve, new SolidCurveIntersectionOptions());
+                                            if (curveIntersection.SegmentCount > 0)
+                                            {
+                                                if (roomNumbersList.Find(elem => elem == room.Number) == null)
+                                                {
+                                                    roomNumbersList.Add(room.Number);
+                                                    roomNamesList.Add(room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString());
+                                                    continue;
+                                                }
+                                            }
                                         }
                                         if (intersection != null && intersection.Volume != 0)
                                         {
