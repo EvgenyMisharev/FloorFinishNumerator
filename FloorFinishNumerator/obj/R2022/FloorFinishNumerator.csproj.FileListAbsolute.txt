@@ -1,0 +1,13 @@
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\bin\R2022\FloorFinishNumerator.dll.config
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\bin\R2022\FloorFinishNumerator.dll
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\bin\R2022\FloorFinishNumerator.pdb
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2022\FloorFinishNumerator.csproj.AssemblyReference.cache
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2022\FloorFinishNumeratorProgressBarWPF.baml
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2022\FloorFinishNumeratorWPF.baml
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2022\FloorFinishNumeratorProgressBarWPF.g.cs
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2022\FloorFinishNumeratorWPF.g.cs
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2022\FloorFinishNumerator_MarkupCompile.cache
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2022\FloorFinishNumerator.g.resources
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2022\FloorFinishNumerator.csproj.CoreCompileInputs.cache
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2022\FloorFinishNumerator.dll
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2022\FloorFinishNumerator.pdb
