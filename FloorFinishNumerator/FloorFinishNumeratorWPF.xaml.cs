@@ -5,9 +5,6 @@ using System.Windows.Input;
 
 namespace FloorFinishNumerator
 {
-    /// <summary>
-    /// Логика взаимодействия для FinishNumeratorWPF.xaml
-    /// </summary>
     public partial class FloorFinishNumeratorWPF : Window
     {
         public string FloorFinishNumberingSelectedName;
