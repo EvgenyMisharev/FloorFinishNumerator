@@ -4,4 +4,8 @@
     <StartAction>Program</StartAction>
     <StartProgram>C:\Program Files\Autodesk\Revit 2021\Revit.exe</StartProgram>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'R2021|AnyCPU'">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files\Autodesk\Revit 2021\Revit.exe</StartProgram>
+  </PropertyGroup>
 </Project>

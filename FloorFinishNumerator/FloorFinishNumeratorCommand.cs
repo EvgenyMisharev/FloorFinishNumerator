@@ -18,6 +18,9 @@ namespace FloorFinishNumerator
         {
             Document doc = commandData.Application.ActiveUIDocument.Document;
 
+            Guid arRoomBookNumberGUID = new Guid("22868552-0e64-49b2-b8d9-9a2534bf0e14");
+            Guid arRoomBookNameGUID = new Guid("b59a22a9-7890-45bd-9f93-a186341eef58");
+
             FloorFinishNumeratorWPF floorFinishNumeratorWPF = new FloorFinishNumeratorWPF();
             floorFinishNumeratorWPF.ShowDialog();
             if (floorFinishNumeratorWPF.DialogResult != true)
@@ -26,6 +29,7 @@ namespace FloorFinishNumerator
             }
 
             string floorFinishNumberingSelectedName = floorFinishNumeratorWPF.FloorFinishNumberingSelectedName;
+            bool fillRoomBookParameters = floorFinishNumeratorWPF.FillRoomBookParameters;
 
             if (floorFinishNumberingSelectedName == "rbt_EndToEndThroughoutTheProject")
             {
@@ -86,11 +90,36 @@ namespace FloorFinishNumerator
                             return Result.Cancelled;
                         }
 
+                        //Очистка параметра "АР_RoomBook_Номер" и "АР_RoomBook_Имя"
+                        if (fillRoomBookParameters)
+                        {
+                            if (floorList.First().get_Parameter(arRoomBookNumberGUID) == null)
+                            {
+                                TaskDialog.Show("Revit", "У пола отсутствует параметр \"АР_RoomBook_Номер\"");
+                                floorFinishNumeratorProgressBarWPF.Dispatcher.Invoke(() => floorFinishNumeratorProgressBarWPF.Close());
+                                return Result.Cancelled;
+                            }
+                            if (floorList.First().get_Parameter(arRoomBookNameGUID) == null)
+                            {
+                                TaskDialog.Show("Revit", "У пола отсутствует параметр \"АР_RoomBook_Имя\"");
+                                floorFinishNumeratorProgressBarWPF.Dispatcher.Invoke(() => floorFinishNumeratorProgressBarWPF.Close());
+                                return Result.Cancelled;
+                            }
+                        }
+
                         foreach (Floor floor in floorList)
                         {
                             floor.LookupParameter("АР_НомераПомещенийПоТипуПола").Set("");
                             floor.LookupParameter("АР_ИменаПомещенийПоТипуПола").Set("");
+
+                            if (fillRoomBookParameters)
+                            {
+                                floor.get_Parameter(arRoomBookNumberGUID).Set("");
+                                floor.get_Parameter(arRoomBookNameGUID).Set("");
+                            }
                         }
+
+
 
                         List<string> roomNumbersList = new List<string>();
                         List<string> roomNamesList = new List<string>();
@@ -142,7 +171,19 @@ namespace FloorFinishNumerator
                                     }
                                     if (intersection != null && intersection.Volume != 0)
                                     {
-                                        if(roomNumbersList.Find(elem => elem == room.Number) == null)
+                                        if (fillRoomBookParameters)
+                                        {
+                                            if (floor.get_Parameter(arRoomBookNumberGUID) != null)
+                                            {
+                                                floor.get_Parameter(arRoomBookNumberGUID).Set(room.Number);
+                                            }
+                                            if (floor.get_Parameter(arRoomBookNameGUID) != null)
+                                            {
+                                                floor.get_Parameter(arRoomBookNameGUID).Set(room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString());
+                                            }
+                                        }
+
+                                        if (roomNumbersList.Find(elem => elem == room.Number) == null)
                                         {
                                             roomNumbersList.Add(room.Number);
                                             roomNamesList.Add(room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString());
@@ -319,6 +360,18 @@ namespace FloorFinishNumerator
                                         }
                                         if (intersection != null && intersection.Volume != 0)
                                         {
+                                            if (fillRoomBookParameters)
+                                            {
+                                                if (floor.get_Parameter(arRoomBookNumberGUID) != null)
+                                                {
+                                                    floor.get_Parameter(arRoomBookNumberGUID).Set(room.Number);
+                                                }
+                                                if (floor.get_Parameter(arRoomBookNameGUID) != null)
+                                                {
+                                                    floor.get_Parameter(arRoomBookNameGUID).Set(room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString());
+                                                }
+                                            }
+
                                             if (roomNumbersList.Find(elem => elem == room.Number) == null)
                                             {
                                                 roomNumbersList.Add(room.Number);

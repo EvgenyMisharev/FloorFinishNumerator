@@ -8,6 +8,7 @@ namespace FloorFinishNumerator
     public partial class FloorFinishNumeratorWPF : Window
     {
         public string FloorFinishNumberingSelectedName;
+        public bool FillRoomBookParameters;
         public FloorFinishNumeratorWPF()
         {
             InitializeComponent();
@@ -19,6 +20,7 @@ namespace FloorFinishNumerator
                 .Children.OfType<RadioButton>()
                 .FirstOrDefault(rb => rb.IsChecked.Value == true)
                 .Name;
+            FillRoomBookParameters = (bool)checkBox_fillRoomBookParameters.IsChecked;
             DialogResult = true;
             Close();
         }
@@ -36,6 +38,7 @@ namespace FloorFinishNumerator
                     .Children.OfType<RadioButton>()
                     .FirstOrDefault(rb => rb.IsChecked.Value == true)
                     .Name;
+                FillRoomBookParameters = (bool)checkBox_fillRoomBookParameters.IsChecked;
                 DialogResult = true;
                 Close();
             }
