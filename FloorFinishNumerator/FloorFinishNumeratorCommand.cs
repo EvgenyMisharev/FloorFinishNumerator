@@ -4,9 +4,7 @@ using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace FloorFinishNumerator
 {
@@ -187,6 +185,20 @@ namespace FloorFinishNumerator
                                         {
                                             roomNumbersList.Add(room.Number);
                                             roomNamesList.Add(room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString());
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Curve curve = Line.CreateBound(floorSolid.ComputeCentroid(), floorSolid.ComputeCentroid() + (500 / 304.8) * XYZ.BasisZ) as Curve;
+                                        SolidCurveIntersection curveIntersection = roomSolid.IntersectWithCurve(curve, new SolidCurveIntersectionOptions());
+                                        if (curveIntersection.SegmentCount > 0)
+                                        {
+                                            if (roomNumbersList.Find(elem => elem == room.Number) == null)
+                                            {
+                                                roomNumbersList.Add(room.Number);
+                                                roomNamesList.Add(room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString());
+                                                continue;
+                                            }
                                         }
                                     }
                                 }
@@ -376,6 +388,20 @@ namespace FloorFinishNumerator
                                             {
                                                 roomNumbersList.Add(room.Number);
                                                 roomNamesList.Add(room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString());
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Curve curve = Line.CreateBound(floorSolid.ComputeCentroid(), floorSolid.ComputeCentroid() + (500 / 304.8) * XYZ.BasisZ) as Curve;
+                                            SolidCurveIntersection curveIntersection = roomSolid.IntersectWithCurve(curve, new SolidCurveIntersectionOptions());
+                                            if (curveIntersection.SegmentCount > 0)
+                                            {
+                                                if (roomNumbersList.Find(elem => elem == room.Number) == null)
+                                                {
+                                                    roomNumbersList.Add(room.Number);
+                                                    roomNamesList.Add(room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString());
+                                                    continue;
+                                                }
                                             }
                                         }
                                     }
