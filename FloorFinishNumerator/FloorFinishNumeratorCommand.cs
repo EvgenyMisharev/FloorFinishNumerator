@@ -159,6 +159,18 @@ namespace FloorFinishNumerator
                                         SolidCurveIntersection curveIntersection = roomSolid.IntersectWithCurve(curve, new SolidCurveIntersectionOptions());
                                         if(curveIntersection.SegmentCount > 0)
                                         {
+                                            if (fillRoomBookParameters)
+                                            {
+                                                if (floor.get_Parameter(arRoomBookNumberGUID) != null)
+                                                {
+                                                    floor.get_Parameter(arRoomBookNumberGUID).Set(room.Number);
+                                                }
+                                                if (floor.get_Parameter(arRoomBookNameGUID) != null)
+                                                {
+                                                    floor.get_Parameter(arRoomBookNameGUID).Set(room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString());
+                                                }
+                                            }
+
                                             if (roomNumbersList.Find(elem => elem == room.Number) == null)
                                             {
                                                 roomNumbersList.Add(room.Number);
@@ -193,6 +205,18 @@ namespace FloorFinishNumerator
                                         SolidCurveIntersection curveIntersection = roomSolid.IntersectWithCurve(curve, new SolidCurveIntersectionOptions());
                                         if (curveIntersection.SegmentCount > 0)
                                         {
+                                            if (fillRoomBookParameters)
+                                            {
+                                                if (floor.get_Parameter(arRoomBookNumberGUID) != null)
+                                                {
+                                                    floor.get_Parameter(arRoomBookNumberGUID).Set(room.Number);
+                                                }
+                                                if (floor.get_Parameter(arRoomBookNameGUID) != null)
+                                                {
+                                                    floor.get_Parameter(arRoomBookNameGUID).Set(room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString());
+                                                }
+                                            }
+
                                             if (roomNumbersList.Find(elem => elem == room.Number) == null)
                                             {
                                                 roomNumbersList.Add(room.Number);
@@ -362,6 +386,18 @@ namespace FloorFinishNumerator
                                             SolidCurveIntersection curveIntersection = roomSolid.IntersectWithCurve(curve, new SolidCurveIntersectionOptions());
                                             if (curveIntersection.SegmentCount > 0)
                                             {
+                                                if (fillRoomBookParameters)
+                                                {
+                                                    if (floor.get_Parameter(arRoomBookNumberGUID) != null)
+                                                    {
+                                                        floor.get_Parameter(arRoomBookNumberGUID).Set(room.Number);
+                                                    }
+                                                    if (floor.get_Parameter(arRoomBookNameGUID) != null)
+                                                    {
+                                                        floor.get_Parameter(arRoomBookNameGUID).Set(room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString());
+                                                    }
+                                                }
+
                                                 if (roomNumbersList.Find(elem => elem == room.Number) == null)
                                                 {
                                                     roomNumbersList.Add(room.Number);
@@ -396,6 +432,18 @@ namespace FloorFinishNumerator
                                             SolidCurveIntersection curveIntersection = roomSolid.IntersectWithCurve(curve, new SolidCurveIntersectionOptions());
                                             if (curveIntersection.SegmentCount > 0)
                                             {
+                                                if (fillRoomBookParameters)
+                                                {
+                                                    if (floor.get_Parameter(arRoomBookNumberGUID) != null)
+                                                    {
+                                                        floor.get_Parameter(arRoomBookNumberGUID).Set(room.Number);
+                                                    }
+                                                    if (floor.get_Parameter(arRoomBookNameGUID) != null)
+                                                    {
+                                                        floor.get_Parameter(arRoomBookNameGUID).Set(room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString());
+                                                    }
+                                                }
+
                                                 if (roomNumbersList.Find(elem => elem == room.Number) == null)
                                                 {
                                                     roomNumbersList.Add(room.Number);
