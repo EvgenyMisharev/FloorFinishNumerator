@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              Title="Нумератор пола" Height="200" Width="300" 
              MinHeight="200" MinWidth="300" MaxHeight="200" MaxWidth="300"
-             WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" KeyDown="FloorFinishNumeratorWPF_KeyDown">
+             WindowStyle="SingleBorderWindow" ResizeMode="NoResize" Icon="Resources/citrus.ico" WindowStartupLocation="CenterScreen" KeyDown="FloorFinishNumeratorWPF_KeyDown">
     <Grid>
         <GroupBox x:Name="groupBox_FloorFinishNumbering" Header="Нумерация пола:" Margin="10,10,10,70">
             <Grid>

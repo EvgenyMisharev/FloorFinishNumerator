@@ -14,3 +14,5 @@ C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerat
 C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\bin\R2021\FloorFinishNumerator.dll.config
 C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\bin\R2021\FloorFinishNumerator.dll
 C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\bin\R2021\FloorFinishNumerator.pdb
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2021\FloorFinishNumerator.Properties.Resources.resources
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2021\FloorFinishNumerator.csproj.GenerateResource.cache
