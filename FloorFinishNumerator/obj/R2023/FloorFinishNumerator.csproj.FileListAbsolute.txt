@@ -1,6 +1,3 @@
-C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\bin\R2023\FloorFinishNumerator.dll.config
-C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\bin\R2023\FloorFinishNumerator.dll
-C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\bin\R2023\FloorFinishNumerator.pdb
 C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2023\FloorFinishNumerator.csproj.AssemblyReference.cache
 C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2023\FloorFinishNumeratorProgressBarWPF.baml
 C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2023\FloorFinishNumeratorWPF.baml
@@ -13,3 +10,9 @@ C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerat
 C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2023\FloorFinishNumerator.pdb
 C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2023\FloorFinishNumerator.Properties.Resources.resources
 C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\obj\R2023\FloorFinishNumerator.csproj.GenerateResource.cache
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator.dll.config
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator.dll
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator.pdb
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\bin\R2023\FloorFinishNumerator.dll.config
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\bin\R2023\FloorFinishNumerator.dll
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\FloorFinishNumerator\FloorFinishNumerator\bin\R2023\FloorFinishNumerator.pdb
