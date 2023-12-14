@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Threading;
 
 namespace FloorFinishNumerator
@@ -53,13 +54,13 @@ namespace FloorFinishNumerator
                     t.Start("Нумерация пола");
                     //Типы полов 
                     List<FloorType> floorTypesList = new FilteredElementCollector(doc)
-                        .OfClass(typeof(FloorType))
-                        .Where(f => f.Category.Id.IntegerValue.Equals((int)BuiltInCategory.OST_Floors))
+                        .OfCategory(BuiltInCategory.OST_Floors)
+                        .WhereElementIsElementType()
                         .Where(f => f.get_Parameter(BuiltInParameter.ALL_MODEL_MODEL) != null)
                         .Where(f => f.get_Parameter(BuiltInParameter.ALL_MODEL_MODEL).AsString() == "Пол"
                         || f.get_Parameter(BuiltInParameter.ALL_MODEL_MODEL).AsString() == "Полы")
                         .Cast<FloorType>()
-                        .OrderBy(f => f.Name, new AlphanumComparatorFastString())
+                        .OrderBy(f => PadNumbers(f.Name))
                         .ToList();
 
                     Thread newWindowThread = new Thread(new ThreadStart(ThreadStartingPoint));
@@ -272,9 +273,9 @@ namespace FloorFinishNumerator
                                 }
                             }
                         }
-                        roomNumbersList.Sort(new AlphanumComparatorFastString());
+                        roomNumbersList.OrderBy(e => PadNumbers(e));
                         roomNamesList = roomNamesList.Distinct().ToList();
-                        roomNamesList.Sort(new AlphanumComparatorFastString());
+                        roomNamesList.OrderBy(e => PadNumbers(e));
 
                         string roomNumbersByFloorType = null;
                         string roomNamesByFloorType = null;
@@ -359,7 +360,7 @@ namespace FloorFinishNumerator
                             .Where(f => f.get_Parameter(BuiltInParameter.ALL_MODEL_MODEL).AsString() == "Пол"
                             || f.get_Parameter(BuiltInParameter.ALL_MODEL_MODEL).AsString() == "Полы")
                             .Cast<FloorType>()
-                            .OrderBy(f => f.Name, new AlphanumComparatorFastString())
+                            .OrderBy(f => PadNumbers(f.Name))
                             .ToList();
 
                         foreach (FloorType floorType in floorTypesList)
@@ -537,9 +538,9 @@ namespace FloorFinishNumerator
                                     }
                                 }
                             }
-                            roomNumbersList.Sort(new AlphanumComparatorFastString());
+                            roomNumbersList.OrderBy(e => PadNumbers(e));
                             roomNamesList = roomNamesList.Distinct().ToList();
-                            roomNamesList.Sort(new AlphanumComparatorFastString());
+                            roomNamesList.OrderBy(e => PadNumbers(e));
 
                             string roomNumbersByFloorType = null;
                             string roomNamesByFloorType = null;
@@ -590,6 +591,10 @@ namespace FloorFinishNumerator
             floorFinishNumeratorProgressBarWPF = new FloorFinishNumeratorProgressBarWPF();
             floorFinishNumeratorProgressBarWPF.Show();
             System.Windows.Threading.Dispatcher.Run();
+        }
+        public static string PadNumbers(string input)
+        {
+            return Regex.Replace(input, "[0-9]+", match => match.Value.PadLeft(10, '0'));
         }
         private static void GetPluginStartInfo()
         {
