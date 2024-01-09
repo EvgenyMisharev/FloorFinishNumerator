@@ -273,9 +273,9 @@ namespace FloorFinishNumerator
                                 }
                             }
                         }
-                        roomNumbersList.OrderBy(e => PadNumbers(e));
+                        roomNumbersList = roomNumbersList.OrderBy(e => PadNumbers(e)).ToList();
                         roomNamesList = roomNamesList.Distinct().ToList();
-                        roomNamesList.OrderBy(e => PadNumbers(e));
+                        roomNamesList = roomNamesList.OrderBy(e => PadNumbers(e)).ToList();
 
                         string roomNumbersByFloorType = null;
                         string roomNamesByFloorType = null;
@@ -538,9 +538,9 @@ namespace FloorFinishNumerator
                                     }
                                 }
                             }
-                            roomNumbersList.OrderBy(e => PadNumbers(e));
+                            roomNumbersList = roomNumbersList.OrderBy(e => PadNumbers(e)).ToList();
                             roomNamesList = roomNamesList.Distinct().ToList();
-                            roomNamesList.OrderBy(e => PadNumbers(e));
+                            roomNamesList = roomNamesList.OrderBy(e => PadNumbers(e)).ToList();
 
                             string roomNumbersByFloorType = null;
                             string roomNamesByFloorType = null;
